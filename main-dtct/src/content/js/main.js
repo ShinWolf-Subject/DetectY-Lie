@@ -19,7 +19,7 @@
                     
                     <div class="header">
                         <h1>Lie Detector</h1>
-                        <p>Hold to scan fingerprint</p>
+                        <p>Hold to scan fingerprint | <a href="https://shinwolf-subject.github.io/LT-Download/lie-dtct" target="_blank">Source Code</a></p>
                     </div>
 
                     <div class="question-area" id="questionArea">
