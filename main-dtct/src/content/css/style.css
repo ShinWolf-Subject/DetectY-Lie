@@ -1,0 +1,341 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .container {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 32px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      color: #f0f6fc;
+      font-size: 1.8em;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .header p {
+      color: #7d8590;
+      font-size: 0.9em;
+      margin-bottom: 32px;
+    }
+    
+    .scanner-area {
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 24px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+    }
+    
+    .scanner-area:hover {
+      border-color: #484f58;
+    }
+    
+    .fingerprint-container {
+      margin-bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #30363d;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 16px auto;
+      transition: border-color 0.2s ease;
+    }
+    
+    .scanning .fingerprint-container {
+      border-color: #58a6ff;
+    }
+    
+    .fingerprint-image {
+      width: 80px;
+      height: 80px;
+      opacity: 0.4;
+      transition: opacity 0.2s ease;
+    }
+    
+    .scan-instruction {
+      color: #7d8590;
+      font-size: 0.9em;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    
+    .scanning .scan-instruction {
+      color: #58a6ff;
+    }
+    
+    .progress-bar {
+      width: 200px;
+      height: 2px;
+      background: #30363d;
+      border-radius: 1px;
+      margin: 16px auto;
+      position: relative;
+      display: none;
+    }
+    
+    .scanning .progress-bar {
+      display: block;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: #58a6ff;
+      border-radius: 1px;
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+    
+    .progress-text {
+      color: #7d8590;
+      font-size: 0.7em;
+      margin-top: 8px;
+      text-align: center;
+      display: none;
+    }
+    
+    .scanning .progress-text {
+      display: block;
+    }
+    
+    .result-area {
+      min-height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .result {
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-bottom: 8px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .result.show {
+      opacity: 1;
+    }
+    
+    .result.true {
+      color: #3fb950;
+    }
+    
+    .result.lie {
+      color: #f85149;
+    }
+    
+    .confidence {
+      color: #7d8590;
+      font-size: 0.8em;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .confidence.show {
+      opacity: 1;
+    }
+    
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .modal {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 24px;
+      max-width: 320px;
+      width: 90%;
+      text-align: center;
+    }
+    
+    .modal h2 {
+      color: #f0f6fc;
+      margin-bottom: 12px;
+      font-size: 1.4em;
+      font-weight: 600;
+    }
+    
+    .modal p {
+      color: #7d8590;
+      margin-bottom: 16px;
+      font-size: 0.9em;
+    }
+    
+    .modal input {
+      width: 100%;
+      padding: 8px 12px;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      color: #c9d1d9;
+      font-size: 0.9em;
+      margin-bottom: 16px;
+    }
+    
+    .modal input:focus {
+      outline: none;
+      border-color: #58a6ff;
+    }
+    
+    .modal-buttons {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .modal-btn {
+      flex: 1;
+      padding: 8px 16px;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      font-size: 0.8em;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    
+    .modal-btn.primary {
+      background: #238636;
+      color: white;
+      border-color: #238636;
+    }
+    
+    .modal-btn.primary:hover {
+      background: #2ea043;
+    }
+    
+    .modal-btn.secondary {
+      background: transparent;
+      color: #c9d1d9;
+    }
+    
+    .modal-btn.secondary:hover {
+      background: #30363d;
+    }
+    
+    .player-name {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      color: #7d8590;
+      font-size: 0.8em;
+    }
+    
+    .info-box {
+      background: #0d1117;
+      border: 1px solid #21262d;
+      border-radius: 6px;
+      padding: 16px;
+      margin-top: 16px;
+      text-align: left;
+    }
+    
+    .info-box h3 {
+      color: #f0f6fc;
+      font-size: 0.9em;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .info-box p {
+      color: #7d8590;
+      font-size: 0.8em;
+      line-height: 1.4;
+    }
+    
+    .replay-button {
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      color: #c9d1d9;
+      padding: 8px 16px;
+      font-size: 0.8em;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background-color 0.2s ease;
+    }
+    
+    .replay-button:hover {
+      background: #30363d;
+    }
+    
+    .scanner-area.disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    .question-area {
+      background: #0d1117;
+      border: 1px solid #21262d;
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .question-area h3 {
+      color: #f0f6fc;
+      font-size: 0.9em;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .question-input {
+      width: 100%;
+      padding: 8px 12px;
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      color: #c9d1d9;
+      font-size: 0.8em;
+      resize: none;
+      height: 60px;
+      transition: border-color 0.2s ease;
+    }
+    
+    .question-input:focus {
+      outline: none;
+      border-color: #58a6ff;
+    }
+    
+    .question-input:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    .question-area.disabled {
+      opacity: 0.6;
+    }
