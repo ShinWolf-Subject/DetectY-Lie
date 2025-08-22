@@ -36,7 +36,7 @@
 
                     <div class="scanner-area" id="scannerArea">
                         <div class="fingerprint-container">
-                            <img src="img/sample0.png" alt="fingerprint" class="fingerprint-image" />
+                            <img src="https://shinwolf-subject.github.io/DetectY-Lie/main-dtct/src/content/img/sample0.png" alt="fingerprint" class="fingerprint-image" />
                         </div>
                         <div class="progress-bar">
                             <div class="progress-fill" id="progressFill"></div>
