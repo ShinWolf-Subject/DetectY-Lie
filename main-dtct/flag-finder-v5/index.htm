@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://res.cloudinary.com/df9rxchwx/raw/upload/v1756085756/style_sh0vah.css">
+  <title>Flag Finder</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Flag Finder</h1>
+      <p class="subtitle">Temukan bendera negara dari seluruh dunia <i class="fas fa-eye"></i></p>
+    </div>
+    
+    <div class="search-container">
+      <div class="input-wrapper">
+        <input type="text" class="search-input" id="searchInput" placeholder="Enter Country Name. (e.g. Indonesia, dll.)">
+        <div class="suggestions" id="suggestions"></div>
+      </div>
+      <button class="search-btn" onclick="searchFlag()">
+        <img class="middle" src="https://res.cloudinary.com/df9rxchwx/image/upload/v1756016634/search_y9n9fr.svg" />
+      </button>
+    </div>
+    
+    <div class="result-container" id="resultContainer">
+    </div>
+  </div>
+  
+  <script src="https://res.cloudinary.com/df9rxchwx/raw/upload/v1756085738/countries_lvcbn4.js"></script>
+  <script src="https://res.cloudinary.com/df9rxchwx/raw/upload/v1756085738/main_wupvz9.js"></script>
+</body>
+</html>
