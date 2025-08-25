@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://res.cloudinary.com/df9rxchwx/raw/upload/v1756092335/style_si6yxh.css">
+  <title>Penurun Kualitas Gambar</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Penurun Kualitas Gambar</h1>
+    <p class="description">Unggah gambar dan turunkan kualitasnya dengan berbagai efek menarik</p>
+    
+    <div class="upload-container" id="upload-area">
+      <p>Seret & lepas gambar di sini atau</p>
+      <input type="file" id="file-input" accept="image/*">
+      <label for="file-input" class="upload-btn">Pilih Gambar</label>
+    </div>
+    
+    <div class="controls hidden" id="controls">
+      <div class="control-group">
+        <label for="blur-slider">Tingkat Keburaman</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="10" value="0" class="slider" id="blur-slider">
+          <span class="slider-value" id="blur-value">0</span>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label for="noise-slider">Tingkat Keburikan & Debu</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="100" value="0" class="slider" id="noise-slider">
+          <span class="slider-value" id="noise-value">0</span>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label for="pixelate-slider">Tingkat Kepixelan</label>
+        <div class="slider-container">
+          <input type="range" min="1" max="20" value="1" class="slider" id="pixelate-slider">
+          <span class="slider-value" id="pixelate-value">1</span>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label for="brightness-slider">Tingkat Kecerahan</label>
+        <div class="slider-container">
+          <input type="range" min="50" max="150" value="100" class="slider" id="brightness-slider">
+          <span class="slider-value" id="brightness-value">100%</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="preview-container hidden" id="preview-container">
+      <div class="preview-box">
+        <h3>Gambar Asli</h3>
+        <canvas id="original-canvas" class="preview-img"></canvas>
+      </div>
+      <div class="preview-box">
+        <h3>Hasil Edit</h3>
+        <canvas id="result-canvas" class="preview-img"></canvas>
+        <a href="#" class="download-btn hidden" id="download-btn">Download Gambar</a>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/main.js"></script>
+</body>
+</html>
