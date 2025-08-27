@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Scanner</title>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://res.cloudinary.com/dzhadndh2/raw/upload/v1756313797/all_earowf.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <h1>
+      <i class="fas fa-qrcode"></i>
+      QR Scanner |
+      <a href="https://shinwolf-subject.github.io/DetectY-Lie/main-dtct/QR-GeN" target="_blank" class="qrgen">
+        QR Generator
+      </a>
+    </h1>
+    <div class="dropdown">
+      <button class="dropdown-toggle" id="dropdown-toggle">
+        <i class="fas fa-ellipsis-v"></i>
+      </button>
+      <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-item" data-mode="browse">
+          <i class="fas fa-folder-open"></i> Browse Photo
+        </div>
+        <div class="dropdown-item" data-mode="drag">
+          <i class="fas fa-hand-paper"></i> Drag and Drop
+        </div>
+        <div class="dropdown-item" data-mode="camera-upload">
+          <i class="fas fa-camera"></i> Take Pictures
+        </div>
+        <div class="brdr"></div>
+        <a class="dropdown-item" href="https://www.tiktok.com/@allen_k.js">
+          <i class="fab fa-tiktok"></i>
+          Tiktok
+        </a>
+        <a class="dropdown-item" href="#" target="_blank">
+          <i class="fas fa-bars"></i>
+          LinkTree
+        </a>
+        <div class="brdr"></div>
+        <a href="javascript:void(0)" onclick="window.print()" class="dropdown-item">
+          <i class="fas fa-print"></i>
+          Print
+        </a>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <!-- Upload Section (Dynamic) -->
+    <div class="section">
+      <!-- Browse Photo Mode -->
+      <div class="upload-section active" id="browse-mode">
+        <div class="section-title">
+          <i class="fas fa-folder-open"></i>
+          Browse Photo
+        </div>
+        <div class="upload-area" onclick="document.getElementById('file-upload').click()">
+          <i class="fas fa-images"></i>
+          <p><strong>Pilih gambar QR Code</strong></p>
+          <p>Klik untuk memilih dari galeri</p>
+          <input type="file" id="file-upload" class="file-upload" accept="image/*">
+        </div>
+      </div>
+      
+      <!-- Drag and Drop Mode -->
+      <div class="upload-section" id="drag-mode">
+        <div class="section-title">
+          <i class="fas fa-hand-paper"></i>
+          Drag and Drop
+        </div>
+        <div class="drop-zone" id="drop-zone">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p><strong>Seret gambar ke sini</strong></p>
+          <p>atau klik untuk memilih file</p>
+        </div>
+      </div>
+      
+      <!-- Camera Upload Mode -->
+      <div class="upload-section" id="camera-upload-mode">
+        <div class="section-title">
+          <i class="fas fa-camera"></i>
+          Take Pictures
+        </div>
+        <div class="upload-area" onclick="document.getElementById('camera-capture').click()">
+          <i class="fas fa-camera"></i>
+          <p><strong>Ambil foto QR Code</strong></p>
+          <p>Klik untuk menggunakan kamera</p>
+          <input type="file" id="camera-capture" class="file-upload" accept="image/*" capture="camera">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Camera Section -->
+    <div class="section">
+      <div class="section-title">
+        <i class="fas fa-video"></i>
+        Camera Scanner
+      </div>
+      
+      <div class="permission-info" id="permission-info" style="display: none;">
+        <i class="fas fa-info-circle"></i>
+        Klik "Allow" ketika browser meminta akses kamera
+      </div>
+      
+      <div class="camera-preview">
+        <div class="camera-placeholder" id="camera-placeholder">
+          <i class="fas fa-video"></i>
+          <p>Aktifkan kamera untuk scan langsung</p>
+        </div>
+        <video id="video" autoplay playsinline muted></video>
+        <div class="scanner-overlay" id="scanner-overlay">
+          <div class="scanner-line"></div>
+        </div>
+      </div>
+      
+      <div style="text-align: center;">
+        <button id="camera-toggle" class="btn">
+          <i class="fas fa-play"></i> Aktifkan Kamera
+        </button>
+        <button id="switch-camera" class="btn" style="display: none;">
+          <i class="fas fa-sync-alt"></i> Ganti Kamera
+        </button>
+      </div>
+    </div>
+    
+    <!-- Result Section -->
+    <div class="section">
+      <div class="result" id="result">
+        <p>Pilih gambar atau aktifkan kamera untuk scan QR Code</p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/all.js"></script>
+</body>
+</html>
