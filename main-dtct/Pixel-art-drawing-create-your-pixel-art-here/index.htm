@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://res.cloudinary.com/dzhadndh2/raw/upload/v1756350898/all_juerh4.css">
+  <title>Pixel Art</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎨 Aplikasi Gambar Pixel</h1>
+      <p>Buat karya seni pixel dengan mudah dan ekspor ke PNG. Lihat selebihnya di <a href="https://linktr.ee/alenlst" style="color:#1c5eb7; text-decoration:none;">LinkTree</a>.</p>
+    </header>
+    
+    <div class="app-container">
+      <div class="canvas-container">
+        <canvas id="pixelCanvas"></canvas>
+      </div>
+      
+      <div class="tools">
+        <div class="tool-section">
+          <h3>
+            <i class="fas fa-palette"></i>
+            Pilihan Warna
+          </h3>
+          <div class="color-palette" id="colorPalette">
+            <!-- Warna akan diisi oleh JavaScript -->
+          </div>
+          
+          <div class="custom-color">
+            <h3>
+              <i class="fas fa-pencil"></i>
+              Warna Custom
+            </h3>
+            <input type="color" id="colorPicker" value="#ff0000">
+          </div>
+          
+          <div class="current-color">
+            <span><strong>Warna Aktif:</strong></span>
+            <div class="current-color-display" id="currentColorDisplay"></div>
+          </div>
+        </div>
+        
+        <div class="tool-section">
+          <h3>
+            <i class="fas fa-gear"></i>
+            Kontrol Grid
+          </h3>
+          <div class="slider-container">
+            <div class="slider-label">
+              <span>Ukuran Grid:</span>
+              <span class="slider-value" id="gridSizeValue">20 x 20</span>
+            </div>
+            <input type="range" id="gridSizeSlider" min="5" max="50" value="20">
+          </div>
+          
+          <div class="slider-container">
+            <div class="slider-label">
+              <span>Ukuran Pixel:</span>
+              <span class="slider-value" id="pixelSizeValue">20px</span>
+            </div>
+            <input type="range" id="pixelSizeSlider" min="5" max="40" value="20">
+          </div>
+        </div>
+        
+        <div class="tool-section">
+          <button id="clearBtn">
+            <i class="fas fa-trash"></i>
+            Bersihkan Kanvas
+          </button>
+          <button id="exportBtn">
+            <i class="fas fa-floppy-disk"></i>
+            Export ke PNG
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="instructions">
+      <h2><i class="fas fa-book"></i> Cara Menggunakan:</h2>
+      <ul>
+        <li><strong>Pilih warna</strong> dari palet (16 warna) atau gunakan color picker untuk warna custom</li>
+        <li><strong>Gunakan eraser (<i class="fas fa-brush"></i>)</strong> untuk menghapus pixel tertentu</li>
+        <li><strong>Atur ukuran grid</strong> dengan slider untuk mengubah jumlah pixel (5x5 hingga 50x50)</li>
+        <li><strong>Atur ukuran pixel</strong> dengan slider untuk mengubah ukuran setiap pixel</li>
+        <li><strong>Klik atau drag</strong> pada kanvas untuk menggambar pixel</li>
+        <li>Gunakan tombol <strong>Bersihkan Kanvas</strong> untuk memulai dari awal</li>
+        <li>Gunakan tombol <strong>Export ke PNG</strong> untuk menyimpan gambar Anda</li>
+      </ul>
+    </div>
+  </div>
+  <script src="js/all.js"></script>
+</body>
+            </html>
